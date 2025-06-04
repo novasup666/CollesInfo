@@ -65,7 +65,7 @@ $0 <= i < j <= k$ tels que :
  forall n>= 0 #v(1em) [f in L <=> u v_1 dots v_i (v_(i+1) dots v_j)^n v_(j+1) dots v_k w in L] $, [$sigma_k$])
 
  #named_equations($
- f in L <=> u v_1 dots v_i  dots v_k w in L $, [$sigma_k '$])
+ f in L <=> u v_1 dots v_i v_(j+1)  dots v_k w in L $, [$sigma_k '$])
 
 Nous allons montrer le résultat suivant, attribuée à Ehrenfeucht, Parikh et Rozenberg.
 
