@@ -42,9 +42,9 @@
 
 On propose deux versions du lemme de l'étoile pour les langages réguliers. Soit $L$ un langage régulier. Alors $L$ vérifie les deux lemmes suivants:
 
-#lemma[Il existe $N>=0$ tel que, pour tout mot $x in L $ avec $|x|>= N$, il existe une décomposition $x = u_1u_2u_3$ avec $u_2 != epsilon $ telle que $forall n in NN ,  u_1 u_2 ^n u_ 3 in L$] <lem:et1>
+#lemma[Il existe $N>=0$ tel que, pour tout $n>=N$, pour tout mot $x in L $ avec $|x|>= n$, il existe une décomposition $x = u_1u_2u_3$ avec $u_2 != epsilon $ telle que $forall p in NN ,  u_1 u_2 ^p u_ 3 in L$] <lem:et1>
 
-#lemma[ Il existe $N>=0$ tel que, pour tout mot $x in L $, pour toute décomposition $x = u v_1v_2 dots v_N w$ avec $forall 1<=i<=N, |v_i| >= 1$, il existe $0 <= j <k <= N$ tel que pour tout $n>=0$: $ u v_1 dots v_j (v_(j+1) dots v_k)^n  dots v_N w in L $ ] <lem:et2>
+#lemma[ Il existe $N>=0$ tel que, pour tout $n>=N$ pour tout mot $x in L $, pour toute décomposition $x = u v_1v_2 dots v_n w$ avec $forall 1<=i<=n, |v_i| >= 1$, il existe $0 <= j <k <= n$ tel que pour tout $p>=0$: $ u v_1 dots v_j (v_(j+1) dots v_k)^p  dots v_n w in L $ ] <lem:et2>
 
 
 
@@ -67,17 +67,17 @@ $0 <= i < j <= k$ tels que :
  #named_equations($
  f in L <=> u v_1 dots v_i v_(j+1)  dots v_k w in L $, [$sigma_k '$])
 
-Nous allons montrer le résultat suivant, attribuée à Ehrenfeucht, Parikh et Rozenberg.
+On remarquera que $sigma_k$ contient une équivalence, et est donc différente du lemme 2. Nous allons montrer le résultat suivant, attribuée à Ehrenfeucht, Parikh et Rozenberg.
 
 #proposition[Il existe une équivalence entre:
 - (1) $L$ est régulier
 - (2) Il existe $k>0$ tel que $L$ vérifie $sigma_k$
 - (3) Il existe $k>0$ tel que $L$ vérifie $sigma_k '$]
 
-*Q1)* #h(0.25em) Sans reprouver la dernière version du lemme de l’étoile, justifier rapidement que (1) implique (2) (penser
+*Q1)* #h(0.25em) En admetant le lemme 2, justifier rapidement que (1) implique (2) (penser
 au langage complémentaire) et que (2) implique (3).
 
-*Q2)*#h(0.25em) On note, pour tout mot $v in Sigma^*$, $v^(-1)L = {u bar u.v in L}$. Montrer que si $L$ vérifie $sigma_k '$, alors, pour tout mot $ v in Sigma^*$, $v^(-1)L$ vérifie aussi $sigma_ k '$.
+*Q2)*#h(0.25em) On note, pour tout mot $v in Sigma^*$, $v^(-1)L = {u bar v.u in L}$. Montrer que si $L$ vérifie $sigma_k '$, alors, pour tout mot $ v in Sigma^*$, $v^(-1)L$ vérifie aussi $sigma_ k '$.
 
 On cherche à montrer que pour tout entier non nul $k$, il existe un nombre fini de langages vérifiant $sigma_k '$. Soient $L_1$ et $L_2$ deux tels langages. Pour ce faire, nous invoquons le théorème de Ramsey qui sera admis ici. On note $P_p (E)$ les parties à $p$ élèments de E. 
 
@@ -101,6 +101,8 @@ existe un sous-ensemble $F_P$ de $[|1,N|]$ de cardinal au moins $k + 1$ dont ses
 *Q5)*#h(0.25em) En utilisant la question précédente, montrer que pour tout mot $f$ de taille au moins $N$, il existe une factorisation $f = u v_1 dots v_k w$, où tous les mots $v_i$ sont non vides, telle que pour tous $0 <= i < j <= k$:
 
 $ f in L_1 <=> u v_1 dots v_i v_(j+1) dots v_k w in L_1 $
+
+_Indication: On peut poser $ P = {(i,j) in [|1;n-1|]^2, i < j bar f_1 ... f_i f_(j+1) ... f_n in L_1 }$_
 
 *Q6)*#h(0.25em) Montrer par récurrence sur la taille des mots que, si les mots de taille au plus $N$ de $L_1$ sont exactement les mots de taille au plus $N$ de $L_2$, alors $L_1 = L_2$.
 
