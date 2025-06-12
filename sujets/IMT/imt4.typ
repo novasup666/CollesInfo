@@ -19,15 +19,16 @@
 
 #set heading(numbering: "I.a.1 - ")
 
-#grid(columns: (4fr,2fr),[
 #align(center, text(18pt)[Sujet IMT-4 ])
+#grid(columns:2,[
 = Lois de de Morgan
-Les règles de la logique intuitionniste :
-],[#image("image-1.png",width:85%)])
+Les règles de la logique intuitionniste :],[#align(center,[#image("image-1.png",width: 55%)])
+])
 
-#align(center,[#image("image.png",width: 85%)])
-1. Deriver les séquents suivants à l'aide des règles de la logique intuitionniste (ci-dessus).
-  - $not A or not B tack not (A and B)$
+
+#align(center,[#image("image-3.png",width: 85%)])
+
+1. Deriver le séquent suivant à l'aide des règles de la logique intuitionniste (ci-dessus).
   - $¬(A ∨ ¬A) ⊢ ¬A$
 2. Montrer que la regle RAA, permet de dériver le séquent du Tiers-exclu : $tack A or not A $ 
 
@@ -36,23 +37,40 @@ On ajoute à la logique intuitionniste l'axiome du Tiers-exclu:
 $ ()/(tack A or not A)("TE") $
 3. Montrer que $not (A and B) tack not A or not B$ est dérivable. 
 
+
+
+
+#align(right,[_Penser à tourner la feuille..._])
+#pagebreak()
 = Langages
+
+
 
 *Définition*: 
 Soit $L$ un langage sur $Sigma$, on définit la racine carrée de L, $sqrt(L) = {u in Sigma^*|u.u in L}$
 
-*Définition*: Soit $A  = (Q, Sigma, q_0,F,delta)$ un automate fini déterministe complet. On définit $forall q in Q$, les automates finis $A_q$ tels que:
+
+On définit l'automate $A_0$ suivant :
+#align(center,[#image("image-4.png",width:70%)])
+0. Donner $sqrt(cal(L)(A_0))$.
+*Définition*: Soit $A  = (Q, Sigma, q_0,F,delta)$ #footnote([
+*Rappel*: Fonction de transition $delta$.
+
+Pour $q,q' in Q$ et $a in Sigma$, on rappelle que :
+$ delta(q,a)=q' <=> q->^a q' $
+
+De plus pour $w = w_1...w_n in Sigma^*$ un mot fini quelconque (dont $w_i$ sont les lettres):
+$ delta^*(q,w) = q' <=> q(->^*)^w q' $$ <=> exists (q_1,q_(n-1)) in Q^n, q->^(w_1)q_1 ->^(w_2)q_2 ... q_(n-1)->^(w_n)q' $
+
+]) un automate fini déterministe complet. On définit $forall q in Q$, les automates finis $A_q$ tels que:
 - les états de $A_q$ sont les couples $(q_i,q_j) in Q^2$
 - l'état initial de $A_q$ est $(q_0,q)$
 - les états terminaux de $A_q$ sont les $(q,q_f), forall q_f in F$
 - On a  pour tout les $A_q$, la même fonction de transition $delta_2 : ((q_i,q_j),a) -> (delta(q_i,a), delta(q_j,a))$
-1. Caractériser simplement $ cal(L)(A_q)$
+1. Caractériser simplement $ cal(L)(A_q)$ (quels sont les mots appartenant à $cal(L)(A_q)$ ?).
 2. Montrer que la racine carré d'un langage rationnel est rationnelle.
 
-*Définition*:
-Soit $L$ un langage sur $Sigma$, on définit  $1/2L = {u in Sigma^*|exists v in Sigma^*, |v| = |u| "et" u.v in L}$
 
-3. Montrer que $1/2L$ est rationnel si $L$ l'est aussi.
 
 
 
