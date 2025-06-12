@@ -92,10 +92,10 @@ Soit (G,G') un couple de grammaires sans contextes, existe-t-il un mot $w$ engen
 
 3. Quel est le type du problème _INTER-G_ ?
 
-Soit $N in NN$. Soit $Sigma$ l'alphabet sur lequel sont définies $(u_k)_(0<=k<=N)$ et $(v_k)_(0<=k<=N)$ deux listes de mots. Soit $ Alpha = {a_0,...,a_(N-1)}$ des caractères disjoints de $Sigma$ (càd $Sigma \u{2229} A =  emptyset$). On définit les langages suivant, $forall n in NN$:
+Soit $N in NN$. Soit $Sigma$ l'alphabet sur lequel sont définies $(u_k)_(0<k<=N)$ et $(v_k)_(0<k<=N)$ deux listes de mots. Soit $ Alpha = {a_1,...,a_(N)}$ des caractères disjoints de $Sigma$ (càd $Sigma \u{2229} A =  emptyset$). On définit les langages suivant:
 
-- $L_U = {a_i_0..a_i_(n-1)u_i_(n-1)...u_i_0, forall k in [|0,n-1|], i_k in [|0,N|]}$
-- $L_V = {a_i_0..a_i_(n-1)v_i_(n-1)...v_i_0, forall k in [|0,n-1|], i_k in [|0,N|]}$
+- $L_U = union.big_(n in NN){a_i_0..a_i_(n-1)u_i_(n-1)...u_i_0 | forall k in [|0,n-1|], i_k in [|1,N|]}$
+- $L_V = union.big_(n in NN){a_i_0..a_i_(n-1)v_i_(n-1)...v_i_0 | forall k in [|0,n-1|], i_k in [|1,N|]}$
 
-4. Montrer que $L_U$ et $L_V$ sont des langages sans contextes.
+4. Montrer que $L_U$ et $L_V$ sont des langages algébriques.
 5. Montrer que _INTER-G_ est indécidable.
